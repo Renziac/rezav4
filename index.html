@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reza Shkolnikova | Future Visionary</title>
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-purple: #ae00ff;
+            --neon-pink: #ff00e6;
+            --dark-bg: #050518;
+            --glass-bg: rgba(16, 18, 34, 0.7);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Rajdhani', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: var(--dark-bg);
+            color: white;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(174, 0, 255, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 90% 90%, rgba(0, 243, 255, 0.1) 0%, transparent 30%),
+                linear-gradient(to right, rgba(45, 5, 70, 0.3) 0%, transparent 100%);
+        }
+        
+        @keyframes glowPulse {
+            0% { text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue); }
+            50% { text-shadow: 0 0 15px var(--neon-blue), 0 0 25px var(--neon-blue), 0 0 35px var(--neon-blue); }
+            100% { text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue); }
+        }
+        
+        @keyframes floatAnimation {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes gridMovement {
+            0% { background-position: 0px 0px; }
+            100% { background-position: 50px 50px; }
+        }
+        
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(to right, rgba(0, 243, 255, 0.1) 1px, transparent 1px), 
+                              linear-gradient(to bottom, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+            animation: gridMovement 15s linear infinite;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: glowPulse 2s infinite;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--neon-blue);
+            box-shadow: 0 0 15px var(--neon-blue);
+            margin-bottom: 30px;
+            animation: floatAnimation 4s ease-in-out infinite;
+            object-fit: cover;
+            background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(5, 5, 24, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--neon-blue);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            text-align: center;
+            color: white;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+        }
+        
+        .about-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .about-content {
+            background: var(--glass-bg);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+        }
+        
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+        
+        .stat-box {
+            background: var(--glass-bg);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(174, 0, 255, 0.2);
+        }
+        
+        .stat-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--neon-blue);
+        }
+        
+        .stat-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .stat-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: var(--glass-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.2);
+        }
+        
+        .project-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            background: linear-gradient(45deg, rgba(174, 0, 255, 0.3), rgba(0, 243, 255, 0.3));
+        }
+        
+        .project-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .project-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: auto;
+        }
+        
+        .project-tag {
+            background: rgba(0, 243, 255, 0.2);
+            color: var(--neon-blue);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-card {
+            background: var(--glass-bg);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 0, 230, 0.2);
+        }
+        
+        .skill-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--neon-pink);
+        }
+        
+        .skill-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .skill-level {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+            border-radius: 30px;
+        }
+        
+        .skill-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+        }
+        
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .goal-card {
+            background: var(--glass-bg);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .goal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+        }
+        
+        .goal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(174, 0, 255, 0.2);
+        }
+        
+        .goal-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--neon-purple);
+        }
+        
+        .goal-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .goal-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        footer {
+            background: rgba(5, 5, 24, 0.9);
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--neon-blue);
+        }
+        
+        .contact-link {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .contact-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 243, 255, 0.3);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .nav-links a {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#goals">Goals</a>
+        </div>
+    </nav>
+    
+    <header id="home">
+        <div class="grid-overlay"></div>
+        <div class="header-content">
+            <img src="image1.jpg" alt="Reza Shkolnikova" class="profile-img">
+            <h1>Reza Shkolnikova</h1>
+            <p class="subtitle">FUTURE VISIONARY | INNOVATOR | CREATOR</p>
+        </div>
+    </header>
+    
+    <section id="about">
+        <div class="about-container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p class="about-text">
+                    I'm a 10th-grade student with a passion for innovation and future technologies. 
+                    My diverse interests span from fashion design to robotics, app development, and mathematics. 
+                    I'm driven by a vision to revolutionize multiple industries and make a significant impact on the world.
+                    With fluency in Persian and growing English skills, I bring a multicultural perspective to my work.
+                </p>
+                <p class="about-text">
+                    My journey is focused on creating sustainable, innovative solutions to real-world problems while
+                    pursuing academic excellence. I believe in the power of creative thinking combined with technical 
+                    skills to shape the future. Whether it's designing minimalist luxury sportswear or building AI-powered 
+                    beach cleaning robots, I'm constantly pushing boundaries.
+                </p>
+            </div>
+            
+            <div class="stats-container">
+                <div class="stat-box">
+                    <i class="fas fa-rocket stat-icon"></i>
+                    <h3 class="stat-title">Visionary Mindset</h3>
+                    <p class="stat-desc">Creating revolutionary projects with futuristic designs</p>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-code stat-icon"></i>
+                    <h3 class="stat-title">Tech Innovator</h3>
+                    <p class="stat-desc">Developing AI solutions and interactive learning tools</p>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-globe stat-icon"></i>
+                    <h3 class="stat-title">Multicultural</h3>
+                    <p class="stat-desc">Fluent in Persian with improving English skills</p>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-tshirt stat-icon"></i>
+                    <h3 class="stat-title">Fashion Designer</h3>
+                    <p class="stat-desc">Creating minimalist luxury sportswear concepts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-img"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Minimalist Luxury Sportswear</h3>
+                    <p class="project-desc">
+                        Developing a fashion brand focused on minimalist, luxury joggers. 
+                        The concept combines comfort with high-end aesthetics, creating 
+                        versatile pieces that bridge casual and premium fashion spaces.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Fashion Design</span>
+                        <span class="project-tag">Luxury</span>
+                        <span class="project-tag">Minimalism</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-img"></div>
+                <div class="project-content">
+                    <h3 class="project-title">AI Beach Cleaning Robot</h3>
+                    <p class="project-desc">
+                        Creating an autonomous robot powered by solar energy and AI 
+                        that identifies and collects waste on beaches. The project aims 
+                        to tackle ocean pollution with sustainable technology.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Robotics</span>
+                        <span class="project-tag">AI</span>
+                        <span class="project-tag">Sustainability</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-img"></div>
+                <div class="project-content">
+                    <h3 class="project-title">BIL - Back to Life</h3>
+                    <p class="project-desc">
+                        Developing a support app for addiction recovery, offering resources, 
+                        community features, and personalized recovery plans. The app aims to 
+                        help users navigate their journey back to a healthy lifestyle.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">App Development</span>
+                        <span class="project-tag">Healthcare</span>
+                        <span class="project-tag">Support Systems</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-img"></div>
+                <div class="project-content">
+                    <h3 class="project-title">Math Robot Dog</h3>
+                    <p class="project-desc">
+                        Building an interactive robot dog designed to teach math concepts 
+                        to preschool children. This educational tool makes learning fun and 
+                        engaging through play-based activities.
+                    </p>
+                    <div class="project-tags">
+                        <span class="project-tag">Educational Tech</span>
+                        <span class="project-tag">Robotics</span>
+                        <span class="project-tag">Early Learning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <h2 class="section-title">Skills & Interests</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <i class="fas fa-language skill-icon"></i>
+                <h3 class="skill-title">Persian</h3>
+                <div class="skill-level">
+                    <div class="skill-progress" style="width: 95%;"></div>
+                </div>
+                <p class="skill-desc">Fluent in reading, speaking, and writing (some difficulty with cursive)</p>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-language skill-icon"></i>
+                <h3 class="skill-title">English</h3>
+                <div class="skill-level">
+                    <div class="skill-progress" style="width: 70%;"></div>
+                </div>
+                <p class="skill-desc">Intermediate with active improvement goals</p>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-square-root-alt skill-icon"></i>
+                <h3 class="skill-title">Mathematics</h3>
+                <div class="skill-level">
+                    <div class="skill-progress" style="width: 85%;"></div>
+                </div>
+                <p class="skill-desc">Strong interest in asymptotes and topology</p>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-robot skill-icon"></i>
+                <h3 class="skill-title">Robotics</h3>
+                <div class="skill-level">
+                    <div class="skill-progress" style="width: 75%;"></div>
+                </div>
+                <p class="skill-desc">Developing interactive and AI-powered robotics projects</p>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-drafting-compass skill-icon"></i>
+                <h3 class="skill-title">Engineering</h3>
+                <div class="skill-level">
+                    <div class="skill-progress" style="width: 70%;"></div>
+                </div>
+                <p class="skill-desc">Interest in civil engineering and construction</p>
+            </div>
+            
+            <div class="skill-card">
+                <i class="fas fa-palette skill-icon"></i>
+                <h3 class="skill-title">Design</h3>
+                <div class="skill-level">
+                    <div class="skill-progress" style="width: 80%;"></div>
+                </div>
+                <p class="skill-desc">Fashion design with focus on minimalist luxury aesthetics</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="goals">
+        <h2 class="section-title">Future Goals</h2>
+        <div class="goals-grid">
+            <div class="goal-card">
+                <i class="fas fa-university goal-icon"></i>
+                <h3 class="goal-title">Harvard Education</h3>
+                <p class="goal-desc">
+                    Aiming to study at Harvard University to gain world-class education 
+                    and expand my network among top innovators and thinkers.
+                </p>
+            </div>
+            
+            <div class="goal-card">
+                <i class="fas fa-coins goal-icon"></i>
+                <h3 class="goal-title">Financial Success</h3>
+                <p class="goal-desc">
+                    Working toward becoming a multimillionaire through entrepreneurship, 
+                    smart investments, and innovative business ventures across multiple industries.
+                </p>
+            </div>
+            
+            <div class="goal-card">
+                <i class="fas fa-clock goal-icon"></i>
+                <h3 class="goal-title">Time Management</h3>
+                <p class="goal-desc">
+                    Developing superior time management skills to maximize productivity 
+                    and achieve significant results under pressure.
+                </p>
+            </div>
+            
+            <div class="goal-card">
+                <i class="fas fa-futbol goal-icon"></i>
+                <h3 class="goal-title">Sports Leadership</h3>
+                <p class="goal-desc">
+                    Training the Aachen 2025 Football City Championship team, developing 
+                    leadership skills while pursuing excellence in sports.
+                </p>
+            </div>
+            
+            <div class="goal-card">
+                <i class="fas fa-building goal-icon"></i>
+                <h3 class="goal-title">Civil Engineering</h3>
+                <p class="goal-desc">
+                    Pursuing a career in civil engineering, focusing on innovative and 
+                    sustainable building designs and construction techniques.
+                </p>
+            </div>
+            
+            <div class="goal-card">
+                <i class="fas fa-rocket goal-icon"></i>
+                <h3 class="goal-title">Revolutionary Impact</h3>
+                <p class="goal-desc">
+                    Making a significant impact on the world through innovative solutions 
+                    to global challenges and futuristic designs across multiple domains.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#goals">Goals</a>
+            </div>
+            
+            <a href="#" class="contact-link">Get In Touch</a>
+            
+            <p class="copyright">© 2025 Reza Shkolnikova | Future Visionary</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Parallax effect for header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const scrollPosition = window.scrollY;
+            
+            header.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+        });
+    </script>
+</body>
+</html>
